@@ -62,3 +62,5 @@ INSERT INTO buyers(email,username,password) VALUES
 ('lol@pursuit.org','Abdul','897');
 INSERT INTO shops(shop_handle,description,type,email,password) VALUES
 ('jorge skates','making badass skates since day1', 'DIY', 'jorge@lol.com','123');
+INSERT INTO orders(buyer_info,total_amount,payment_info,buyerid) VALUES
+('{abdul,lol}',420,'paid',1);

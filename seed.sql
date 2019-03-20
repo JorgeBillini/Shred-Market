@@ -64,3 +64,7 @@ INSERT INTO shops(shop_handle,description,type,email,password) VALUES
 ('jorge skates','making badass skates since day1', 'DIY', 'jorge@lol.com','123');
 INSERT INTO orders(buyer_info,total_amount,payment_info,buyerid) VALUES
 ('{abdul,lol}',420,'paid',1);
+
+
+
+ALTER TABLE products ALTER COLUMN specs TYPE json USING specs::json;

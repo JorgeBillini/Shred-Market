@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 // ROUTES HERE
 
-app.get('/test',(req,res)=>{
+app.get('/',(req,res)=>{
     res.json('App is running')
 })
 app.use('/user',userApp);

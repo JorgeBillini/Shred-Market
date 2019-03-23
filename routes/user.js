@@ -82,6 +82,7 @@ userApp.put('/',(req,res)=>{
         res.json({message:`successfully updated user ${user.username}`})
     })
     .catch(e =>{
+        console.log(e);
         res.json({error:e.toString()})
     })
 

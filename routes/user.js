@@ -15,6 +15,16 @@ ROUTE METHOD : GET
 DESC : GET USERS INFO
 @PARAMS(STR): USERNAME
 */
+userApp.post('/order',(req,res)=>{
+    const order = req.body;
+    UserService.createOrder(order)
+    .then(_=>{
+        res.json({message:'order succesfully placed'})
+    })
+    .catch(e=>{
+        res.json({success:false,message:e.toString()});
+    })
+})
 userApp.get('/:username',(req,res)=>{
     const {username} = req.params;
     UserService.getBuyerInfo(username)
@@ -33,12 +43,12 @@ OUTPUT : ORDERS ARRAY
 */
 userApp.get('/:id/orders',(req,res)=>{
     const {id} = req.params;
-    UserService.getOrders(id)
+    UserService.getOrderItems(id)
     .then(data =>{
         res.json(data)
     })
     .catch(err => {
-        res.status(200)
+        console.log(err)
         res.json({message:'no data found'})
     });
 

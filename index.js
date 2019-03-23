@@ -4,6 +4,7 @@ const port = 3001;
 const bodyParser = require('body-parser');
 const userApp = require('./routes/user')
 const productApp = require('./routes/product');
+const shopApp = require('./routes/shop');
 // MIDDLEWARE HERE
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -16,6 +17,7 @@ app.get('/test',(req,res)=>{
 })
 app.use('/user',userApp);
 app.use('/product',productApp);
+app.use('/shop',shopApp);
 
 app.listen(port,()=>{
     console.log('Now listening on ', port)

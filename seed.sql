@@ -68,3 +68,4 @@ INSERT INTO orders(buyer_info,total_amount,payment_info,buyerid) VALUES
 
 
 ALTER TABLE products ALTER COLUMN specs TYPE json USING specs::json;
+INSERT INTO order_item(user_id,order_id,product_id,shop_id) VALUES (1, 1,9,3);

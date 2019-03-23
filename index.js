@@ -19,6 +19,6 @@ app.use('/user',userApp);
 app.use('/product',productApp);
 app.use('/shop',shopApp);
 
-app.listen(port,()=>{
+app.listen(process.env.PORT || port,()=>{
     console.log('Now listening on ', port)
 })

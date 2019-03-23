@@ -1,8 +1,5 @@
-DROP DATABASE IF EXISTS eb_market;
-CREATE DATABASE eb_market;
-ALTER DATABASE eb_market OWNER TO "Super";
 
-\connect eb_market
+
 
 
 

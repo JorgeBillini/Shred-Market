@@ -11,40 +11,40 @@ const ShopService = {};
 
 
 */
-ShopService.getShopInfo = (shopname) => {
-    const sql = `SELECT * FROM shops WHERE shopname = $[shopname];
+ShopService.getShopInfo = (shop_handle) => {
+    const sql = `SELECT * FROM shops WHERE shop_handle = $[shop_handle];
     `
-    return db.one(sql,{shopname});
+    return db.one(sql,{shop_handle});
 }
 ShopService.getProducts = (id) => {
     return db.any(`SELECT * FROM products WHERE shop_id= $[id]`,{id});
 }
 ShopService.createshop = (shop) =>{
-    const {shopname,email,password,type,description} = shop;
-    const sql = `INSERT INTO shops(shopname,email,password,type,description) values ($[shopname],$[email],$[password],$[type],$[description]);`
-    return db.none(sql,{shopname,email,password,type,description});
+    const {shop_handle,email,password,type,description} = shop;
+    const sql = `INSERT INTO shops(shop_handle,email,password,type,description) values ($[shop_handle],$[email],$[password],$[type],$[description]);`
+    return db.none(sql,{shop_handle,email,password,type,description});
 }
-ShopService.deleteshop = (shopname) => {
-    const sql = `DELETE FROM shops WHERE shopname = $[shopname];
+ShopService.deleteshop = (shop_handle) => {
+    const sql = `DELETE FROM shops WHERE shop_handle = $[shop_handle];
     `
-    return db.none(sql,{shopname});
+    return db.none(sql,{shop_handle});
 }
 ShopService.updateShop = (shop) => {
     console.log(shop)
-    const {shopname, newshopName, newEmail, newPassword} = shop
+    const {shop_handle, newshop_handle, newEmail, newPassword} = shop
     let sql = '';
     if(newPassword){
         sql = `UPDATE shops 
         SET password = $[newPassword]
         WHERE 
-        shopname=$[shopname] `;
+        shop_handle=$[shop_handle] `;
 
     }
-    else if(newshopName){
+    else if(newshop_handle){
         sql = `UPDATE shops 
-        SET shopname = $[newshopName]
+        SET shop_handle = $[newshop_handle]
         WHERE 
-        shopname = $[shopname] `;
+        shop_handle = $[shop_handle] `;
 
     }
     
@@ -52,17 +52,17 @@ ShopService.updateShop = (shop) => {
         sql = `UPDATE shops 
         SET email = $[newEmail]
         WHERE 
-        shopname = $[shopname] `;
+        shop_handle = $[shop_handle] `;
         
     }
    else if(newPassword){
         sql = `UPDATE shops 
         SET password = $[newPassword]
         WHERE 
-        shopname=$[shopname] `;
+        shop_handle=$[shop_handle] `;
 
     }
-    return db.none(sql,{shopname,newEmail,newPassword});
+    return db.none(sql,{shop_handle,newEmail,newPassword});
 
 }
 ShopService.getOrderItems = shopid => {

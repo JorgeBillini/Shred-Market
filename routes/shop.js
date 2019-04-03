@@ -50,7 +50,7 @@ shopApp.post('/',(req,res)=>{
         res.json({message:`created shop ${shop.shopname}`,success:true});
     })
     .catch(e=>{
-        res.json({success:false,message:`failed to create shop, check your inputs`})
+        res.json({success:false,message:`failed to create shop, check your inputs`,e:e.toString()})
     })
 })
 

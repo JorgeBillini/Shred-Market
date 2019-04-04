@@ -69,7 +69,7 @@ productApp.get('/:id',(req,res)=>{
     productService.getProduct(id)
     .then(product=>{
         res.status(200)
-        res.json(product);
+        res.send(product);
     })
     .catch(e =>{
         res.status(400)

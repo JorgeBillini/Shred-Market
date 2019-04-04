@@ -55,10 +55,10 @@ shopApp.post('/',(req,res)=>{
 })
 
 shopApp.delete('/',(req,res)=>{
-    const {shopname} = req.body;
+    const {shop_handle} = req.body;
     ShopService.deleteshop(shopname)
     .then(_=>{
-        res.json({success:true,message:`deleted shop with ${shopname}`});
+        res.json({success:true,message:`deleted shop with ${shop_handle}`});
     })
     .catch(e=>{
         console.log(e);

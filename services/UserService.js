@@ -11,7 +11,7 @@ UserService.getOrders = (id) => {
 }
 UserService.createbuyer = (user) =>{
     const {username,email,password,firebase_id} = user;
-    const sql = `INSERT INTO buyers(username,email,password,firebase_id) values ($[username],$[email],$[password],[firebase_id]);`
+    const sql = `INSERT INTO buyers(username,email,password,firebase_id) values ($[username],$[email],$[password],$[firebase_id]);`
     return db.none(sql,{username,email,password,firebase_id});
 }
 UserService.deleteBuyer = (username) => {

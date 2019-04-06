@@ -91,7 +91,7 @@ productApp.get('/shop/:shop_id',(req,res)=>{
 /*
 GET FRONT PAGE PRODUCTS
 */
-productApp.get('/all',(req,res)=>{
+productApp.get('/frontpage',(req,res)=>{
     productService.getAllProducts(_)
     .then(products =>{
         res.status(200)

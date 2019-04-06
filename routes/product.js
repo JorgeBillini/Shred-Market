@@ -1,6 +1,19 @@
 const express = require('express');
 const productApp = express();
 const productService = require('../services/productService');
+
+productApp.get('/all',(req,res)=>{
+    
+    productService.getAllProducts()
+    .then(products =>{
+        res.status(200)
+        res.json(products)
+    })
+    .catch(e=>{
+        res.status(400)
+        res.json({error:e.toString()})
+    })
+})
 /*
     ROUTE: POST
     route is private, please add some sort of authorization to this please 
@@ -92,16 +105,5 @@ productApp.get('/shop/:shop_id',(req,res)=>{
 /*
 GET FRONT PAGE PRODUCTS
 */
-productApp.get('/frontpage/all',(req,res)=>{
-    
-    productService.getAllProducts()
-    .then(products =>{
-        res.status(200)
-        res.json(products)
-    })
-    .catch(e=>{
-        res.status(400)
-        res.json({error:e.toString()})
-    })
-})
+
 module.exports = productApp;

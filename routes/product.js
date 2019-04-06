@@ -92,7 +92,7 @@ productApp.get('/shop/:shop_id',(req,res)=>{
 GET FRONT PAGE PRODUCTS
 */
 productApp.get('/all',(req,res)=>{
-    productService.getAllProducts()
+    productService.getAllProducts(_)
     .then(products =>{
         res.status(200)
         res.json(products)

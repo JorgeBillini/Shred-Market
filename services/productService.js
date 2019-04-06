@@ -14,7 +14,7 @@ productService.uploadProduct = (product) => {
     specs( JSON OBJECT ) PONDERING if it should be passed straight up as JSON or passed just as regular object
     */
     let {name,image_url_array,shop_id, amount, specs} = product; 
-    const sql = `INSERT INTO products VALUES($[name],$[image_url_array],$[shop_id],$[amount],$[specs])`;
+    const sql = `INSERT INTO products VALUES($[name],$[image_url_array],$[shop_id],$[amount],$[specs]) RETURNING id`;
     return db.none(sql,{name,image_url_array,shop_id,amount,specs});
 }
 
@@ -70,7 +70,7 @@ productService.getProductsByShop = shop =>{
     }
     return db.any(sql,{shop_id});
 }
-productService.getAllProducts = () => {
-    return db.any("SELECT * FROM products")
+productService.getAllProducts = _ => {
+    return db.any(`SELECT * FROM products`)
 }
  module.exports = productService;

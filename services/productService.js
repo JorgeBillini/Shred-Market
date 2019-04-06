@@ -71,7 +71,6 @@ productService.getProductsByShop = shop =>{
     return db.any(sql,{shop_id});
 }
 productService.getAllProducts = () => {
-    let sql = `SELECT * FROM products;`
-    return db.any(sql)
+    return db.any("SELECT * FROM products")
 }
  module.exports = productService;

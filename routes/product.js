@@ -8,6 +8,7 @@ const productService = require('../services/productService');
     @param img_url_array(arr)
     @param amount(int)
     @param specs (JSON)
+    <Link to=""> <img rogkropg> </link>
 */
 productApp.post('/',(req,res)=>{
     const product = req.body;
@@ -91,9 +92,9 @@ productApp.get('/shop/:shop_id',(req,res)=>{
 /*
 GET FRONT PAGE PRODUCTS
 */
-productApp.get('/all',(req,res)=>{
-    const bogus = '';
-    productService.getAllProducts(bogus)
+productApp.get('/frontpage/all',(req,res)=>{
+    
+    productService.getAllProducts()
     .then(products =>{
         res.status(200)
         res.json(products)

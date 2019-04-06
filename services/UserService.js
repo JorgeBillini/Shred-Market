@@ -10,9 +10,9 @@ UserService.getOrders = (id) => {
     return db.one(`SELECT * FROM orders WHERE id = $[id]`,{id});
 }
 UserService.createbuyer = (user) =>{
-    const {username,email,password} = user;
-    const sql = `INSERT INTO buyers(username,email,password) values ($[username],$[email],$[password]);`
-    return db.none(sql,{username,email,password});
+    const {username,email,password,firebase_id} = user;
+    const sql = `INSERT INTO buyers(username,email,password,firebase_id) values ($[username],$[email],$[password],[firebase_id]);`
+    return db.none(sql,{username,email,password,firebase_id});
 }
 UserService.deleteBuyer = (username) => {
     const sql = `DELETE FROM BUYERS WHERE username = $[username];

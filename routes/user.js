@@ -94,6 +94,7 @@ userApp.put('/',(req,res)=>{
     @PARAMS username: UNIQUE STR CONTAINING USERNAME
     @PARAMS email: UNIQUE STR CONTAINING EMAIL
     @PARAMS password:  password str 
+    @Param uid(from firebase): uid pertaining to firebase
     TODO: implement bcrypt to passwords
 */
 userApp.post('/',(req,res)=>{

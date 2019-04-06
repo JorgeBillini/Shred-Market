@@ -70,7 +70,7 @@ productService.getProductsByShop = shop =>{
     }
     return db.any(sql,{shop_id});
 }
-productService.getAllProducts = _ => {
+productService.getAllProducts = bogus => {
     return db.any(`SELECT * FROM products`)
 }
  module.exports = productService;

@@ -91,8 +91,9 @@ productApp.get('/shop/:shop_id',(req,res)=>{
 /*
 GET FRONT PAGE PRODUCTS
 */
-productApp.get('/*',(req,res)=>{
-    productService.getAllProducts(_)
+productApp.get('/all',(req,res)=>{
+    const bogus = '';
+    productService.getAllProducts(bogus)
     .then(products =>{
         res.status(200)
         res.json(products)

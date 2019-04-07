@@ -11,8 +11,12 @@ const ShopService = {};
 
 
 */
-ShopService.getShopInfo = (shop_handle) => {
-    const sql = `SELECT * FROM shops WHERE shop_handle = $[shop_handle];
+ShopService.getShopInfo = (shop_handle,id) => {
+    let sql; 
+    if (id) {
+        sql = `SELECT * FROM shops WHERE id=$[id]`;
+    }
+    else sql = `SELECT * FROM shops WHERE shop_handle = $[shop_handle];
     `
     return db.one(sql,{shop_handle});
 }

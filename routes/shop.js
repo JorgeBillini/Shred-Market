@@ -91,4 +91,15 @@ shopApp.get('/:shopname',(req,res)=>{
     })
     
 })
+shopApp.get('/shopInfo/:id',(req,res)=>{
+    const {id} = req.params;
+    ShopService.getShopInfo(null,id)
+    .then(shop=>{
+        res.json(shop);
+    })
+    .catch(e=>{
+        res.json({message:'failed in route/shopInfo/', error:err.toString()})
+    })
+})
+
 module.exports = shopApp;

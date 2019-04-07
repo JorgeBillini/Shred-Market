@@ -98,7 +98,7 @@ shopApp.get('/shopInfo/:id',(req,res)=>{
         res.json(shop);
     })
     .catch(e=>{
-        res.json({message:'failed in route/shopInfo/', error:err.toString()})
+        res.json({message:'failed in route/shopInfo/', error:e.toString()})
     })
 })
 

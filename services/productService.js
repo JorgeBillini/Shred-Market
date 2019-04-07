@@ -71,6 +71,6 @@ productService.getProductsByShop = shop =>{
     return db.any(sql,{shop_id});
 }
 productService.getAllProducts = bogus => {
-    return db.any(`SELECT products.*, shops.shop_handle, shops.id FROM products JOIN shops ON products.shop_id = shops.id`)
+    return db.any(`SELECT products.*, shops.shop_handle FROM products JOIN shops ON products.shop_id = shops.id`)
 }
  module.exports = productService;

@@ -59,7 +59,7 @@ productService.updateProduct = (product) => {
     return db.none(sql,{newName,newImage_url_Array,newAmount,newSpecs,shop_id})
 }
 productService.getProduct = id => { 
-    let sql = `SELECT products.*, shops.shop_handle, shops.id FROM products JOIN shops ON products.shop_id = shops.id  WHERE products.id=$[id]`
+    let sql = `SELECT products.*, shops.shop_handle FROM products JOIN shops ON products.shop_id = shops.id  WHERE products.id=$[id]`
     return db.one(sql,{id})
 }
 productService.getProductsByShop = shop =>{

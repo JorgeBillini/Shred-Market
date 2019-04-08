@@ -24,9 +24,9 @@ ShopService.getProducts = (id) => {
     return db.any(`SELECT * FROM products WHERE shop_id= $[id]`,{id});
 }
 ShopService.createshop = (shop) =>{
-    const {shop_handle,email,password,type,description} = shop;
-    const sql = `INSERT INTO shops(shop_handle,email,password,type,description) values ($[shop_handle],$[email],$[password],$[type],$[description]);`
-    return db.none(sql,{shop_handle,email,password,type,description});
+    const {shop_handle,email,password,type,description,firebase_id} = shop;
+    const sql = `INSERT INTO shops(shop_handle,email,password,type,description,firebase_id) values ($[shop_handle],$[email],$[password],$[type],$[description],$[firebase_id]);`
+    return db.none(sql,{shop_handle,email,password,type,description,firebase_id});
 }
 ShopService.deleteshop = (shop_handle) => {
     const sql = `DELETE FROM shops WHERE shop_handle = $[shop_handle];

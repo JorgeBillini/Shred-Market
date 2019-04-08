@@ -8,6 +8,26 @@ GET SHOP ORDERS BY SHOPNAME OR ID
 @PARAM id(int)
 PROTECTED ROUTE
 */
+shopApp.get('/isShop',async(req,res)=>{
+    const {firebase_id} = req.body;
+    try {
+        const  shop_info =await ShopService.isShop(firebase_id);
+        if (shop_info){
+            res.json({
+                isShop: true,
+                shop_info: shop_info
+            })
+        }
+    }
+    catch (e) {
+        res.json({
+            isShop: false
+        })
+    }
+  
+
+
+})
 shopApp.get('/products/:shopname',async(req,res)=>{
     const shopname= req.params;
     console.log(shopname);

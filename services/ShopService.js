@@ -23,6 +23,9 @@ ShopService.getShopInfo = (shop_handle,id) => {
 ShopService.getProducts = (id) => {
     return db.any(`SELECT * FROM products WHERE shop_id= $[id]`,{id});
 }
+ShopService.isShop = (firebase_id) => {
+    return db.one(`SELECT * FROM SHOPS WHERE firebase_id=$[firebase_id]`,{firebase_id});
+}
 ShopService.createshop = (shop) =>{
     const {shop_handle,email,password,type,description,firebase_id} = shop;
     const sql = `INSERT INTO shops(shop_handle,email,password,type,description,firebase_id) values ($[shop_handle],$[email],$[password],$[type],$[description],$[firebase_id]);`

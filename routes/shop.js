@@ -98,8 +98,8 @@ shopApp.put('/',(req,res)=>{
     })
 })
 
-shopApp.get('/:shopname',(req,res)=>{
-    const {shopname} = req.params;
+shopApp.get('/:id',(req,res)=>{
+    const {id} = req.params;
     // console.log(shopname)
     ShopService.getShopInfo(shopname)
     .then(shop=>{

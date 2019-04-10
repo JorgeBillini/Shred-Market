@@ -98,17 +98,32 @@ shopApp.put('/',(req,res)=>{
     })
 })
 
-shopApp.get('/:id',(req,res)=>{
-    const {id} = req.params;
+shopApp.get('/:id' || '/:shopname',(req,res)=>{
+    const {id,shopname} = req.params;
     // console.log(shopname)
-    ShopService.getShopInfo(shopname)
-    .then(shop=>{
-        res.json(shop)
-    })
-    .catch(e=>{
-        console.log(e);
-        res.json({success:false,message:'something went wrong'})
-    })
+    if (id){
+        ShopService.getShopInfo(id)
+        .then(shop=>{
+            res.json(shop)
+        })
+        .catch(e=>{
+            console.log(e);
+            res.json({success:false,message:'something went wrong'})
+        })
+    }
+    if (shopname){
+        ShopService.getShopInfo(shopname)
+        .then(shop=>{
+            res.json(shop)
+        })
+        .catch(e=>{
+            console.log(e);
+            res.json({success:false,message:'something went wrong'})
+        })
+
+    }
+
+    
     
 })
 shopApp.get('/shopInfo/:id',(req,res)=>{

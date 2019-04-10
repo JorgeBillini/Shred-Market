@@ -102,23 +102,23 @@ shopApp.get('/:id' || '/:shopname',(req,res)=>{
     const {id,shopname} = req.params;
     // console.log(shopname)
     if (id){
-        ShopService.getShopInfo(id)
+        ShopService.getShopInfo(null,id)
         .then(shop=>{
             res.json(shop)
         })
         .catch(e=>{
             console.log(e);
-            res.json({success:false,message:'something went wrong'})
+            res.json({success:false,message:'something went wrong',error:e.toString()})
         })
     }
     if (shopname){
-        ShopService.getShopInfo(shopname)
+        ShopService.getShopInfo(shopname,null)
         .then(shop=>{
             res.json(shop)
         })
         .catch(e=>{
             console.log(e);
-            res.json({success:false,message:'something went wrong'})
+            res.json({success:false,message:'something went wrong',error:e.toString()})
         })
 
     }

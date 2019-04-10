@@ -11,14 +11,13 @@ const ShopService = {};
 
 
 */
-ShopService.getShopInfo = (shop_handle,id) => {
+ShopService.getShopInfo = (id) => {
     let sql; 
-    if (id) {
+
         sql = `SELECT * FROM shops WHERE id=$[id]`;
-    }
-    else sql = `SELECT * FROM shops WHERE shop_handle = $[shop_handle];
-    `
-    return db.one(sql,{shop_handle});
+    
+    
+    return db.one(sql,{id});
 }
 ShopService.getProducts = (id) => {
     return db.any(`SELECT * FROM products WHERE shop_id= $[id]`,{id});

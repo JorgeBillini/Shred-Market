@@ -98,11 +98,11 @@ shopApp.put('/',(req,res)=>{
     })
 })
 
-shopApp.get('/:id' || '/:shopname',(req,res)=>{
-    const {id,shopname} = req.params;
+shopApp.get('/:id' ,(req,res)=>{
+    const {id} = req.params;
     // console.log(shopname)
-    if (id){
-        ShopService.getShopInfo(null,id)
+    
+        ShopService.getShopInfo(id)
         .then(shop=>{
             res.json(shop)
         })
@@ -110,18 +110,7 @@ shopApp.get('/:id' || '/:shopname',(req,res)=>{
             console.log(e);
             res.json({success:false,message:'something went wrong',error:e.toString()})
         })
-    }
-    if (shopname){
-        ShopService.getShopInfo(shopname,null)
-        .then(shop=>{
-            res.json(shop)
-        })
-        .catch(e=>{
-            console.log(e);
-            res.json({success:false,message:'something went wrong',error:e.toString()})
-        })
-
-    }
+    
 
     
     

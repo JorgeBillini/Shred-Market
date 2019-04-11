@@ -99,6 +99,7 @@ shopApp.put('/',(req,res)=>{
 })
 
 shopApp.get('/:id' ,(req,res)=>{
+    console.log(id);
     const {id} = req.params;
     // console.log(shopname)
     

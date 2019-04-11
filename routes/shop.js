@@ -102,7 +102,7 @@ shopApp.get('/:id' ,(req,res)=>{
     const {id} = req.params;
     // console.log(shopname)
     
-        ShopService.getShopInfo(id)
+        ShopService.getShopInfo(null,id)
         .then(shop=>{
             res.json(shop)
         })

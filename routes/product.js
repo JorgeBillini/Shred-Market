@@ -30,6 +30,7 @@ productApp.post('/',(req,res)=>{
         res.json({message: `sucessfully created product with ${product.name}`})
     })
     .catch(e => {
+        console.log(e.toString())
         res.status(403)
         res.json({message:'something went wrong please try again',
     error: e.toString()});

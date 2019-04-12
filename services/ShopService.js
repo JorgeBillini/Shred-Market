@@ -74,7 +74,7 @@ ShopService.updateShop = (shop) => {
 ShopService.getOrderItems = shopid => {
     const sql = `SELECT name, amount, specs,id
     FROM products
-    JOIN  order_item ON shop_id=$[shopid];`;
+    JOIN  order_item ON order_item.shop_id=$[shopid];`;
      return db.any(sql,{shopid});
 }
 

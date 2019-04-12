@@ -126,7 +126,7 @@ shopApp.get('/shopInfo/:id',(req,res)=>{
         res.json({message:'failed in route/shopInfo/', error:e.toString()})
     })
 })
-shopApp.get('/all',(req,res)=>{
+shopApp.get('info/all',(req,res)=>{
     ShopService.getAll()
     .then(shops =>{
         res.json(shops)

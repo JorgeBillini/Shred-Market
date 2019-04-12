@@ -79,7 +79,7 @@ ShopService.getOrderItems = shopid => {
 }
 
 ShopService.getAll = _ => {
-    const sql = `SELECT * FROM shops`
+    const sql = `SELECT description,shop_handle,id,email,type FROM shops`
     return db.any(sql);
 }
 module.exports = ShopService;

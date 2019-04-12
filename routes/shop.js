@@ -132,6 +132,7 @@ shopApp.get('/all',(req,res)=>{
         res.json(shops)
     })
     .catch(e=>{
+        console.log(e.toString())
         res.json({message:'error in shops/all', error:e.toString()})
     })
 })

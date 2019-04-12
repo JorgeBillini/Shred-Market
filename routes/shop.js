@@ -50,8 +50,8 @@ shopApp.get('/orderItems/:id',(req,res)=>{
         res.json(data)
     })
     .catch(e=>{
-        console.log(e)
-        res.json({message:'failed'});
+        console.log(e.toString())
+        res.json({message:'failed',err:e.toString()});
     })
 })
 /*

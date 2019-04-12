@@ -77,4 +77,9 @@ ShopService.getOrderItems = shopid => {
     JOIN  order_item ON shopid=$[shopid];`;
      return db.any(sql,{shopid});
 }
+
+ShopService.getAll = _ => {
+    const sql = `SELECT * from shops`
+    return db.any(sql);
+}
 module.exports = ShopService;

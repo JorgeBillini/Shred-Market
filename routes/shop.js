@@ -118,12 +118,21 @@ shopApp.get('/:id' ,(req,res)=>{
 })
 shopApp.get('/shopInfo/:id',(req,res)=>{
     const {id} = req.params;
-    ShopService.getShopInfo(null,id)
+    ShopService.getShopInfo(id)
     .then(shop=>{
         res.json(shop);
     })
     .catch(e=>{
         res.json({message:'failed in route/shopInfo/', error:e.toString()})
+    })
+})
+shopApp.get('/all',(req,res)=>{
+    ShopService.getAll()
+    .then(shops =>{
+        res.json(shops)
+    })
+    .catch(e=>{
+        res.json({message:'error in shops/all', error:e.toString()})
     })
 })
 
